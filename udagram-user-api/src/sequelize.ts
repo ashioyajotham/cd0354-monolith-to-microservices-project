@@ -1,5 +1,6 @@
 import {Sequelize} from 'sequelize-typescript';
 import {config} from './config/config';
+import { Dialect } from 'sequelize';
 
 
 export const sequelize = new Sequelize({
@@ -7,7 +8,6 @@ export const sequelize = new Sequelize({
   'password': config.password,
   'database': config.database,
   'host': config.host,
-
-  'dialect': config.dialect,
+  'dialect': config.dialect as Dialect
   'storage': ':memory:',
 });
