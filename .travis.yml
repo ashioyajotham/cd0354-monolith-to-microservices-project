@@ -15,12 +15,12 @@ before_script:
   - echo "no tests"
 
 script:
-  - docker --version # print the version for logging
-  - docker-compose -f docker-compose-build.yaml build --parallel
-  - docker tag udagram-reverseproxy ashioyajotham/udagram-reverseproxy:latest
-  - docker tag udagram-user-api ashioyajotham/udagram-user-api:latest
-  - docker tag udagram-feed-api ashioyajotham/udagram-feed-api:latest
-  - docker tag udagram-frontend ashioyajotham/udagram-frontend:latest
+  - docker --version
+  - docker build -f udagram-feed-api/Dockerfile -t  ashioyajotham/udagram-feed-api:latest udagram-feed-api
+  - docker build -f udagram-user-api/Dockerfile -t  ashioyajotham/udagram-user-api:latest udagram-user-api
+  - docker build -f udagram-frontend/Dockerfile -t  ashioyajotham/udagram-frontend:latest udagram-frontend
+  - docker build -f udagram-reverseproxy/Dockerfile -t  ashioyajotham/udagram-reverseproxy:latest udagram-reverseproxy
+
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
