@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: udagram-user-api
-  namespace:
   labels:
     app: udagram-user-api
 spec:
@@ -21,11 +20,9 @@ spec:
         imagePullPolicy: Always  
         resources:
           requests:
-            memory: "512Mi"
-            cpu: "250m"
+            cpu: "100m"
           limits:
-            memory: "1024Mi"
-            cpu: "500m"
+            cpu: "200m"
         envFrom:
         - configMapRef:
             name: env-configmap
@@ -45,11 +42,11 @@ spec:
             configMapKeyRef:
               name: env-configmap
               key: POSTGRES_HOST
-        - name: POSTGRES_DB
+        - name: POSTGRES_DATABASE
           valueFrom:
             configMapKeyRef:
               name: env-configmap
-              key: POSTGRES_DB
+              key: POSTGRES_DATABASE
         - name: AWS_BUCKET
           valueFrom:
             configMapKeyRef:

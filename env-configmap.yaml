@@ -5,8 +5,10 @@ metadata:
 data:
   POSTGRES_DATABASE: postgres
   POSTGRES_HOST: database-1.cwcrijjfjoqe.us-east-1.rds.amazonaws.com
+  POSTGRES_USERNAME: postgres
+  POSTGRES_PASSWORD: savagexxiv24
   AWS_REGION: us-east-1
   AWS_PROFILE: default
-  AWS_S3_BUCKET: arn:aws:s3:::xxiv
+  AWS_BUCKET: arn:aws:s3:::xxiv
   JWT_SECRET: testing
-  URL: https://31D736E3DDAFE381A3F746BAA04224CE.sk1.us-west-2.eks.amazonaws.com
+  URL: http://a788bea4ad8f34404a5deb8d9e7b045f-1609604567.us-west-2.elb:8080/api/v0
