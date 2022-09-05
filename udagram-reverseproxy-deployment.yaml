@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,13 +16,13 @@ spec:
         app: udagram-reverseproxy
     spec:
       containers:
-      - name: udagram-reverseproxy
-        image: ashioyajotham/udagram-reverseproxy:latest
-        imagePullPolicy: Always          
-        resources:
-          requests:
-            cpu: "250m"
-          limits:
-            cpu: "500m"       
-        ports:
-        - containerPort: 8080
+        - name: udagram-reverseproxy
+          image: ashioyajotham/udagram-reverseproxy:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: "200m"
+            limits:
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
